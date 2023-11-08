@@ -1,0 +1,18 @@
+{
+
+  "navigation": {
+    "home": "الصفحة الرئيسية",
+    "about": "حول"
+  },
+  "page": {
+    "home": {
+      "title": "مرحبًا بك في i18n الخاص بـ NextJs",
+      "description": "التدويل في جهاز توجيه التطبيق NextJs 13"
+    },
+    "about": {
+      "title": "عننا",
+      "description": "هذه هي الصفحة حول"
+    }
+  }
+}
+  
