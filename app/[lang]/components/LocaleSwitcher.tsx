@@ -1,31 +1,33 @@
-'use client'
+"use client";
 
-import React from 'react'
-import { usePathname } from 'next/navigation'
-import { Icons } from './global/Icons'
-import { Locale, i18n, getFlagIcon } from '@/i18n.config'
+import React from 'react';
+import { usePathname } from 'next/navigation';
+import { Icons } from './global/Icons';
+import { useLanguage } from '@/context/LanguageContext';
+import { i18n, getFlagIcon } from '@/i18n.config';
 
 export default function LocaleSwitcher() {
-  const pathName = usePathname()
-  const [isDropdownOpen, setDropdownOpen] = React.useState(false)
+  const pathName = usePathname();
+  const { lang, changeLang } = useLanguage();
+  const [isDropdownOpen, setDropdownOpen] = React.useState(false);
 
-  const redirectedPathName = (locale: Locale) => {
-    if (!pathName) return '/'
-    const segments = pathName.split('/')
-    segments[1] = locale
-    return segments.join('/')
-  }
+  const redirectedPathName = (locale: string) => {
+    if (!pathName) return '/';
+    const segments = pathName.split('/');
+    segments[1] = locale;
+    return segments.join('/');
+  };
 
   const toggleDropdown = () => {
-    setDropdownOpen(!isDropdownOpen)
-  }
+    setDropdownOpen(!isDropdownOpen);
+  };
 
-  const currentLocale: Locale = pathName.split('/')[1] as Locale
+  const currentLocale = lang;
   const dropdownIcon: React.ReactNode = isDropdownOpen ? (
     <Icons.arrowUp />
   ) : (
     <Icons.arrowDown />
-  )
+  );
 
   return (
     <div className='relative'>
@@ -44,7 +46,10 @@ export default function LocaleSwitcher() {
               <a
                 href={redirectedPathName(locale)}
                 className='flex flex-row gap-2 px-4 py-2 text-sm text-black uppercase hover:bg-gray-100'
-                onClick={() => setDropdownOpen(false)}
+                onClick={() => {
+                  changeLang(locale);
+                  setDropdownOpen(false);
+                }}
               >
                 {getFlagIcon(locale)}
                 <span>{locale}</span>
@@ -54,5 +59,5 @@ export default function LocaleSwitcher() {
         </ul>
       )}
     </div>
-  )
+  );
 }

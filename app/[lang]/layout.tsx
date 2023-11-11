@@ -2,9 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Locale, i18n } from '@/i18n.config'
 import Header from './components/Header'
-
-import { Inter } from 'next/font/google'
-const inter = Inter({ subsets: ['latin'] })
+import { LanguageProvider } from '@/context/LanguageContext'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -23,14 +21,15 @@ export default function RootLayout({
   params: { lang: Locale }
 }) {
   return (
+    <LanguageProvider>
     <html
-      lang={params.lang}
-      dir={params.lang === 'ar' ? 'rtl' : 'ltr'} // for ar only
+      lang={params.lang} dir={params.lang === 'ar' ? 'rtl' : 'ltr'} // for ar only
     >
       <body className={' bg-[#f6f6f6] text-gray-700'}>
         <Header lang={params.lang} />
         <main>{children}</main>
       </body>
     </html>
+    </LanguageProvider>
   )
 }
