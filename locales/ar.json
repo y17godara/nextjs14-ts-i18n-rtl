@@ -1,5 +1,4 @@
 {
-
   "navigation": {
     "home": "الصفحة الرئيسية",
     "about": "حول"
@@ -12,7 +11,10 @@
     "about": {
       "title": "عننا",
       "description": "هذه هي الصفحة حول"
+    },
+    "products": {
+      "title": "منتجاتنا",
+      "description": "هذه هي صفحة المنتجات"
     }
   }
 }
-  

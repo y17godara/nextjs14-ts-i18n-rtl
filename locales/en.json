@@ -11,6 +11,10 @@
     "about": {
       "title": "About Us",
       "description": "This is the about page"
+    },
+    "products": {
+      "title": "Products",
+      "description": "This is the products page"
     }
   }
 }
