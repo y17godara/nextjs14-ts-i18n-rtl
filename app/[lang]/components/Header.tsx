@@ -11,25 +11,37 @@ export default async function Header({ lang }: { lang: Locale }) {
     <>
       <header>
         <div className='relative'>
-          <nav className='flex px-12 items-center justify-between bg-[#005085] text-gray-200 shadow-sm'>
+          <nav className='flex items-center justify-between bg-[#005085] px-12 text-gray-200 shadow-sm'>
             <div>
-              <Icons.menu />
+              <LocaleSwitcher />
             </div>
-            <div><LocaleSwitcher /></div>
           </nav>
-          <nav className=' px-12 flex items-center justify-between bg-[#f2f2f2] p-6 shadow-sm'>
-            <ul className='flex gap-x-8'>
-              <li>
-                <Link className='hover:text-black' href={`/${lang}`}>
-                  {navigation.home}
-                </Link>
-              </li>
-              <li>
-                <Link className='hover:text-black' href={`/${lang}/about`}>
-                  {navigation.about}
-                </Link>
-              </li>
-            </ul>
+          <nav className=' flex items-center justify-between bg-[#f2f2f2] p-6 px-12 shadow-sm'>
+            <div>
+              <Link
+                href={`/${lang}`}
+                className='text-2xl font-bold text-gray-800 hover:text-black'
+              >
+                LOGO
+              </Link>
+            </div>
+            <div className='flex flex-row gap-x-8'>
+              <ul className='flex gap-x-8'>
+                <li>
+                  <Link className='hover:text-black' href={`/${lang}`}>
+                    {navigation.home}
+                  </Link>
+                </li>
+                <li>
+                  <Link className='hover:text-black' href={`/${lang}/about`}>
+                    {navigation.about}
+                  </Link>
+                </li>
+              </ul>
+              <div>
+                <Icons.menu />
+              </div>
+            </div>
           </nav>
         </div>
       </header>

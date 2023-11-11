@@ -2,11 +2,11 @@
 export const getFlagIcon = (locale: Locale): string => {
   switch (locale) {
     case 'en':
-      return '🇺🇸';
+      return '🌐';
     case 'hi':
-      return '🇮🇳';
+      return '🌐';
     case 'ar':
-      return '🇦🇪';
+      return '🌐';
     default:
       return '🌐';
   }
