@@ -1,7 +1,8 @@
 {
   "navigation": {
     "home": "الصفحة الرئيسية",
-    "about": "حول"
+    "about": "حول",
+    "products": "منتجاتنا"
   },
   "page": {
     "home": {

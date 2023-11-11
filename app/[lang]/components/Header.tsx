@@ -3,6 +3,7 @@ import { Locale } from '@/i18n.config'
 import { getDictionary } from '@/lib/dictionary'
 import LocaleSwitcher from './LocaleSwitcher'
 import { Icons } from './global/Icons'
+import { routes } from '@/constants';
 
 export default async function Header({ lang }: { lang: Locale }) {
   const { navigation } = await getDictionary(lang)
@@ -27,16 +28,13 @@ export default async function Header({ lang }: { lang: Locale }) {
             </div>
             <div className='flex flex-row gap-x-8'>
               <ul className='flex gap-x-8'>
-                <li>
-                  <Link className='hover:text-black' href={`/${lang}`}>
-                    {navigation.home}
-                  </Link>
-                </li>
-                <li>
-                  <Link className='hover:text-black' href={`/${lang}/about`}>
-                    {navigation.about}
-                  </Link>
-                </li>
+              {Object.values(routes).map((route) => (
+                  <li key={route.label}>
+                    <Link href={route.path(lang)} className='hover:text-black'>
+                    {(navigation as any)[route.label.toLowerCase()]}
+                    </Link>
+                  </li>
+                ))}
               </ul>
               <div>
                 <Icons.menu />

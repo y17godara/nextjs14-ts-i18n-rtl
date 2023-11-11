@@ -22,7 +22,7 @@ export default function LocaleSwitcher() {
   };
 
   const currentLocale: Locale = pathName.split('/')[1] as Locale
-  console.log(currentLocale);
+  // console.log(currentLocale);
   const dropdownIcon: React.ReactNode = isDropdownOpen ? (
     <Icons.arrowUp />
   ) : (
